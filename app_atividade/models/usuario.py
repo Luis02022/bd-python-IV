@@ -4,10 +4,10 @@ from config.database import db
 
 Base = declarative_base()
 
-class Usario(Base):
+class Usuario(Base):
     __tablename__ = "usuarios"
 
-    id = Column(Integer, primary_key= True, autoincrement= True):
+    id = Column(Integer, primary_key= True, autoincrement= True)
     nome = Column(String(150))
     email = Column(String(150))
     senha = Column(String(150))
