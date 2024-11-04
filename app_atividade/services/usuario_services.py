@@ -23,11 +23,14 @@ class UsuarioSevices:
         except ValueError as erro:
             print(f"Ocorreu um erro inesperado: {erro}")
 
+    def listar_todos_usuarios(self):
+        return self.repository.listar_usuario()
+
     def deletar_usuario(self):
         try:
             email_delete = input("Digite um email que deseja excluir:")
 
-            usuario = self.repository.pesquisar_usuario_por_email( email= email_delete)
+            usuario = self.repository.pesquisar_usuario_por_email(email=email_delete)
 
             if usuario:
                 self.repository.excluir_usuario(usuario)
@@ -43,5 +46,25 @@ class UsuarioSevices:
         except ValueError as erro:
             print(f"Ocorreu um erro inesperado ao excluir: {erro}")
 
-    def listar_todos_usuarios(self):
-        return self.repository.listar_usuario()
+    def atualizar_usuario(self):
+        try:
+            print("Atualizando dados do usuário;")
+
+            email_usuario = input("Informe o email do usuário:")
+
+            usuario_cadastrado = self.repository.atualizar_dados_usuario(
+                email=email_usuario
+            )
+
+            if usuario_cadastrado:
+                usuario_cadastrado.nome = input("Digite seu nome:")
+                usuario_cadastrado.email = input("Digite seu email:")
+                usuario_cadastrado.senha = input("Digite sua senha:")
+                self.repository.atualizar_dados_usuario(usuario_cadastrado)
+            else:
+                print("Usuário não encontrado.")
+
+        except TypeError as erro:
+            print(f"Erro ao atualizar o usuário: {erro}")
+        except ValueError as erro:
+            print(f"Ocorreu um erro inesperado: {erro}")

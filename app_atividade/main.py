@@ -9,7 +9,7 @@ def main():
     session = Session()
     repository = UsuarioRepository(session)
     service = UsuarioSevices(repository)
-    
+
     print("|Adicionando usuário|")
     nome = input("Digite seu nome: ")
     email = input("Digite seu email: ")
@@ -19,15 +19,16 @@ def main():
     listar_usuarios = service.listar_todos_usuarios()
     for usuario in listar_usuarios:
         print(f"Nome: {usuario.nome} - Email: {usuario.email} - Senha: {usuario.senha}")
-
+        
     service.deletar_usuario()
-    
-    
+
+   
+"""   service.atualizar_usuario()
 
     listar_usuarios = service.listar_todos_usuarios()
     for usuario in listar_usuarios:
         print(f"Nome: {usuario.nome} - Email: {usuario.email} - Senha: {usuario.senha}")
 
-
+"""
 if __name__ == "__main__":
     main()
