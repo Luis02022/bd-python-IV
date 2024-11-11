@@ -20,7 +20,8 @@ class Usuario(Base):
     def _nome_test(self, nome):
         if not nome.strip():
             raise TypeError("O nome não pode ser vazio")
-
+        return nome
+    
     def _email_test(self, email):
         if not email.strip():
             raise TypeError("O email não pode ser vazio")

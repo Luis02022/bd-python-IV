@@ -10,12 +10,13 @@ class UsuarioRepository:
         self.session.commit()
         self.session.refresh(usuario)
 
-    def pesquisar_usuario_por_email(self, nome: str):
-        return self.session.query(Usuario).filter_by(nome = nome).first()
+    def pesquisar_usuario_por_email(self, email: str):
+        return self.session.query(Usuario).filter_by(email = email).first()
     
     def excluir_usuario(self, usuario: Usuario):
         self.session.delete(usuario)
         self.session.commit()
+        
         
 
     def atualizar_dados_usuario(self, usuario: Usuario):

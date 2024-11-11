@@ -29,15 +29,15 @@ class UsuarioSevices:
     
     def deletar_usuario(self):
         try:
-            email_delete = input("Digite um email que deseja excluir:")
-
-            usuario = self.repository.pesquisar_usuario_por_email(email=email_delete)
+            email_deletar = input("Digite o email que vc deseja deletar:")
+            usuario = self.repository.pesquisar_usuario_por_email(email_deletar)
 
             if usuario:
                 self.repository.excluir_usuario(usuario)
-                print("Usuário excluido com sucesso!")
+                print("Usuario deletado com sucesso!")
                 input("Aperte enter para continuar...")
                 return
+            
 
             print("Usuario não encontrado.")
             input("Aperte enter para continuar...")
@@ -71,7 +71,7 @@ class UsuarioSevices:
 
     def pesquisar_usuario(self):
         try:
-            nome_pesquisar = input("Digite o nome que você deseja pesquisar: ")
+            nome_pesquisar = input("Digite o email que você deseja pesquisar: ")
             usuario = self.repository.pesquisar_usuario_por_email(nome_pesquisar)
             if usuario:
                 print(f"{usuario.id} - {usuario.nome} - {usuario.email} - {usuario.senha}")
