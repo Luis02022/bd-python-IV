@@ -1,5 +1,5 @@
-from ..models.usuario import Usuario
-from repository.usuario_repository import UsuarioRepository
+from app_atividade.models.usuario import Usuario
+from app_atividade.repository.usuario_repository import UsuarioRepository
 
 
 class UsuarioSevices:

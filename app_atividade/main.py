@@ -1,10 +1,12 @@
-from .services.usuario_services  import UsuarioSevices
-from .repository.usuario_repository import UsuarioRepository
-from config.database  import Session
 import sys
 import os 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from app_atividade.services.usuario_services  import UsuarioSevices
+from app_atividade.repository.usuario_repository import UsuarioRepository
+from app_atividade.config.database  import Session
+
 os.system("cls || clear")
 
 def main():
@@ -72,7 +74,6 @@ def main():
             
             case 0:
                 break
-
 
 
 if __name__ == "__main__":
