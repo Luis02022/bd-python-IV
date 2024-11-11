@@ -72,7 +72,10 @@ def main():
                 input("Aperte enter para continuar...")
 
             
-            case 0:
+            case 0:        
+                listar_usuarios = service.listar_todos_usuarios()
+                for usuario in listar_usuarios:
+                    print(f"\nNome: {usuario.nome} - Email: {usuario.email} - Senha: {usuario.senha}")
                 break
 
 
