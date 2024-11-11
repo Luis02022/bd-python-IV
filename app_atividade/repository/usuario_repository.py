@@ -1,4 +1,4 @@
-from models.usuario import Usuario
+from ..models.usuario import Usuario
 from sqlalchemy.orm import Session
 
 class UsuarioRepository:
@@ -10,16 +10,17 @@ class UsuarioRepository:
         self.session.commit()
         self.session.refresh(usuario)
 
-    def pesquisar_usuario_por_email(self, email: str):
-        return self.session.query(Usuario).filter_by(email=email).first()
+    def pesquisar_usuario_por_email(self, nome: str):
+        return self.session.query(Usuario).filter_by(nome = nome).first()
     
     def excluir_usuario(self, usuario: Usuario):
         self.session.delete(usuario)
         self.session.commit()
-        self.session.refresh(usuario)
+        
 
     def atualizar_dados_usuario(self, usuario: Usuario):
-        return self.session.query(Usuario).all()
+        self.session.commit()
+        self.session.refresh(usuario)
 
     def listar_usuario(self):
         return self.session.query(Usuario).all()

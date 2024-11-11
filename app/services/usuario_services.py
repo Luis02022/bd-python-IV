@@ -1,4 +1,4 @@
-from ..models.usuario import Usuario
+from models.usuario import Usuario
 from repository.usuario_repository import UsuarioRepository
 
 
@@ -69,16 +69,18 @@ class UsuarioSevices:
         except ValueError as erro:
             print(f"Ocorreu um erro inesperado: {erro}")
 
-    def pesquisar_usuario(self):
-        try:
-            nome_pesquisar = input("Digite o nome que você deseja pesquisar: ")
-            usuario = self.repository.pesquisar_usuario_por_email(nome_pesquisar)
-            if usuario:
-                print(f"{usuario.id} - {usuario.nome} - {usuario.email} - {usuario.senha}")
-                return
-            print("Usuario não encontrado!")
+def pesquisar_usuario(self):
+    try:
+        email_usuario_pesquisar = input("Digite o email que deseja:")
+        usuario_pesquisar = self.repository.pesquisar_usuario_por_email(email_usuario_pesquisar)
+        if usuario_pesquisar:
+            print(f"{usuario_pesquisar.id} {usuario_pesquisar.nome} {usuario_.email} {usuario.senha}")
+            return
         
-        except TypeError as erro:
-            print(f"Erro ao salvar usuário: {erro}")
-        except Exception as erro:
-            print (f"ocorreu um erro inesperado: {erro}")
+        print("Usuário não encontrado!")
+
+    
+    except TypeError as erro:
+        print(f"Erro ao pesquisar o usuário: {erro}")
+    except ValueError as erro:
+        print(f"Ocorreu um erro inesperado: {erro}")
